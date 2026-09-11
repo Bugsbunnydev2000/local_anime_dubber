@@ -1,0 +1,39 @@
+# Core ML
+# NOTE: torch/torchaudio must be installed separately with the CUDA build
+# BEFORE this file, pinned to 2.8.x for OmniVoice compatibility -- see README.
+transformers>=4.44.0
+accelerate
+
+# TTS / voice cloning
+omnivoice
+
+# Source separation (vocals vs. background music/SFX)
+demucs
+
+# ASR: faster-whisper (CTranslate2) -- replaces the transformers pipeline
+# approach, which had unreliable long-form timestamps. ctranslate2 also
+# provides the `ct2-transformers-converter` CLI used to convert your
+# existing local Whisper weights (see README) -- no new download needed.
+faster-whisper
+ctranslate2
+
+# Mouth-timing alignment (lip-sync via retiming, not pixel generation) --
+# runs on CPU, does not compete with GPU-loaded models.
+# NOTE: mediapipe>=0.10.2x broke/removed the legacy `mp.solutions` API
+# (face_mesh included) that this project depends on -- pinned to a known-
+# working version. If you hit "module 'mediapipe' has no attribute
+# 'solutions'" anyway, see README's mouth-timing troubleshooting note.
+mediapipe==0.10.14
+protobuf>=4.25.3,<5
+opencv-python
+
+# Audio I/O and processing
+soundfile
+librosa>=0.10.0
+numpy
+
+# HTTP client used to call the local Ollama server for the rewrite pass
+requests
+
+# Note: ffmpeg and ffprobe are separate system binaries, not pip packages.
+# Install them via your OS package manager (see README.md).
