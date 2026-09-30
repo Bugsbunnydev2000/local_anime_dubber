@@ -186,6 +186,13 @@ This is dubbed video(Due to file size limitations, the video length has been sho
 
 https://github.com/user-attachments/assets/965d8e6b-4f0d-493d-955c-237e888ca6c7
 
-<img width="1920" height="1140" alt="Screenshot 2026-09-01 144808" src="https://github.com/user-attachments/assets/27c272ef-e2b7-4bb7-903c-1883516d6575" />
+<img width="1920" height="1091" alt="Screenshot 2026-09-01 234918" src="https://github.com/user-attachments/assets/265f5efa-5512-4517-b5b0-1b8c9d0bd6c4" />
 
 
+**Note:** This project is still incomplete and is currently only a prototype with support for a single speaker. It still has many issues with pronunciation, lip-sync, and other aspects.
+
+if you see a problem or have trouble contact me whit this : 
+
+E-mail : dev.bugsbunny2000@gmail.com
+
+X : https://x.com/Ox_XRV0
