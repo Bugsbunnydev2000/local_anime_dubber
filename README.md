@@ -28,7 +28,7 @@ Qwen/Ollama: translate JA→EN, auto-retry if Japanese leaks through
 
 --------------------------------
 
-# Features currently working : 
+# ✨ Features currently working : 
 
 1- Voice cloning + translation: Whisper (ASR) → Qwen (translation) → OmniVoice (cloned TTS), fully local
 
@@ -62,9 +62,133 @@ Multi-speaker support
 
 <img width="636" height="783" alt="Screenshot 2026-09-30 192316" src="https://github.com/user-attachments/assets/0c2ba38c-5f4a-4a34-86fa-da24ffae58fa" />
 
+-----------------
+
+# How to install it : 
+
+# 1- Install FFmpeg :
+
+download FFmpeg from here : https://ffmpeg.org/download.html and verify with :
+
+```bash
+ffmpeg -version  
+```
+in cmd
+
+# 2- Make sure your NVIDIA driver is installed.
+
+Check:
+
+```bash
+nvidia-smi
+```
+
+# 3 - Install PyTorch with CUDA
+
+Important: install the CUDA-enabled PyTorch build before installing requirements.txt.
+
+Do not blindly install a CPU-only PyTorch build.
+
+For example, using the appropriate CUDA wheel provided by the PyTorch installation instructions:
+
+```bash
+python -m pip install torch torchaudio --index-url <YOUR-PYTORCH-CUDA-WHEEL>
+```
+
+Then verify CUDA:
+
+```bash
+python -c "import torch; print(torch.__version__); print('CUDA:', torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU')"
+```
+
+You want:
+
+CUDA: True
+
+The exact PyTorch/CUDA wheel should be selected according to your installed NVIDIA driver and the currently supported PyTorch build.
 
 
+# 4- Install Python Dependencies
 
+After installing CUDA-enabled PyTorch:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+# 5- Install Ollama
+
+The translation and rewriting stages use Ollama as a local model server.
+
+Install Ollama on your system.
+
+Verify:
+
+```bash
+ollama --version
+```
+
+Then download the model used by this project
+
+```bash
+ollama pull qwen2.5:7b
+```
+
+Verify that it exists:
+
+```bash
+ollama list
+```
+You should see:
+
+qwen2.5:7b
+
+# 6-Download Whisper
+
+The project expects the original Hugging Face Whisper model at:
+
+models/whisper-large-v3-turbo/
+
+Download from : https://huggingface.co/openai/whisper-large-v3-turbo
+
+Place the downloaded files in that the directory : local_anime_dubber/models/whisper-large-v3-turbo
+
+# 6-1 
+
+Convert Whisper to CTranslate2
+
+--------------------
+
+# 📂Prepare Input Files : 
+
+input/
+
+You need:
+
+input/
+├── video.mp4
+└── voice_reference.wav
+
+The voice reference should contain the voice you want OmniVoice to clone.
+
+The current CLI accepts the exact paths, so the files do not have to use these exact filenames
+
+# ▶️ Run the Project : 
+command for run  : 
+
+if you wanna test a real video use this : 
+
+```bash
+python main.py --video input/test.mp4 --voice-ref input/test-a.mp3 --output output/dubbed.mp4 --mode normal
+```
+
+if you wanna test a anime :
+ه
+```bash
+python main.py --video input/clip.mp4 --voice-ref input/voice_ref.mp3 --output output/dubbed.mp4 --mode anime
+```
+
+----------------------------
 
 https://github.com/user-attachments/assets/965d8e6b-4f0d-493d-955c-237e888ca6c7
 
