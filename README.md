@@ -56,3 +56,10 @@ Qwen/Ollama: translate JA→EN, auto-retry if Japanese leaks through
 Multi-speaker support
 
 ----------------------------
+
+
+
+
+https://github.com/user-attachments/assets/965d8e6b-4f0d-493d-955c-237e888ca6c7
+
+
