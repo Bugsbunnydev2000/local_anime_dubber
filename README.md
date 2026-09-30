@@ -166,7 +166,9 @@ input/
 You need:
 
 input/
+
 ├── video.mp4
+
 └── voice_reference.wav
 
 The voice reference should contain the voice you want OmniVoice to clone.
