@@ -58,6 +58,48 @@ Multi-speaker support
 ----------------------------
 
 
+# 📁 Project Structure : 
+
+local_anime_dubber/
+│
+├── input/
+│   └── Put your source video and voice reference here
+│
+├── output/
+│   └── Final dubbed videos
+│
+├── work/
+│   └── Temporary/intermediate processing files
+│
+├── models/
+│   ├── whisper-large-v3-turbo/
+│   │   └── Hugging Face Whisper model
+│   │
+│   └── whisper-large-v3-turbo-ct2/
+│       └── CTranslate2 converted Whisper model
+│
+├── src/
+│   ├── __init__.py
+│   ├── audio_extract.py
+│   ├── reference_audio.py
+│   ├── separate_audio.py
+│   ├── mouth_activity.py
+│   ├── asr.py
+│   ├── translate.py
+│   ├── rewrite.py
+│   ├── tts_clone.py
+│   ├── pronunciation.py
+│   ├── text_utils.py
+│   ├── assemble_audio.py
+│   ├── mux_video.py
+│   └── model_manager.py
+│
+├── config.py
+├── main.py
+├── requirements.txt
+└── README.md
+
+
 
 
 https://github.com/user-attachments/assets/965d8e6b-4f0d-493d-955c-237e888ca6c7
