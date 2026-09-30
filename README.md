@@ -1,10 +1,6 @@
 # Anime Dubber (MVP) — JA → EN local AI dubbing
 
-Local pipeline: Demucs (source separation) → MediaPipe Face Mesh
-(mouth-timing alignment) → faster-whisper/CTranslate2 (full-coverage ASR)
-→ qwen2.5:7b via Ollama (translation + length-aware rewrite) → OmniVoice
-(voice cloning + duration-guided TTS, with pronunciation controls) →
-ffmpeg (mux). No cloud APIs, no API keys.
+A local, offline AI dubbing pipeline: takes a Japanese video (anime or live-action) + a short voice sample, and produces an English-dubbed version with the original character's voice cloned, background music/SFX preserved, and dialogue timing aligned to the video — no cloud APIs, no subscription costs, running entirely on your RTX 4060.
 
 
 
