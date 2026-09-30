@@ -4,27 +4,8 @@ A local, offline AI dubbing pipeline: takes a Japanese video (anime or live-acti
 
 # Current architecture (7 stages) : 
 
-Video → extract audio →
+<img width="996" height="505" alt="Screenshot 2026-09-23 192015" src="https://github.com/user-attachments/assets/2a7c7297-bb1c-4a0e-a07a-81825140d50d" />
 
-Demucs: split vocals from music/SFX
-                              ↓
-                              
-MediaPipe: detect mouth movement] (normal mode only)
-                              ↓
-                              
-faster-whisper: transcribe reference clip + full vocals track, align timing to mouth movement, force zero overlap
-                              ↓
-                              
-Qwen/Ollama: translate JA→EN, auto-retry if Japanese leaks through
-                              ↓
-                              
-  Qwen/Ollama: rewrite lines too long/short for their time slot
-                              ↓
-                              
-  OmniVoice: clone the voice, synthesize English, target exact duration]
-                              ↓
-                              
-   duck background music under dialogue, mix, mux into final video
 
 --------------------------------
 
@@ -190,8 +171,21 @@ if you wanna test a anime :
 python main.py --video input/clip.mp4 --voice-ref input/voice_ref.mp3 --output output/dubbed.mp4 --mode anime
 ```
 
+The default output is:
+
+output/dubbed_output.mp4
+
 ----------------------------
 
+# Example test : 
+
+
+this is Original video Link :  https://www.youtube.com/watch?v=o4R1-TLkxBs18:24
+
+This is dubbed video(Due to file size limitations, the video length has been shortened, and unfortunately, we cannot include the anime examples either.) : 
+
 https://github.com/user-attachments/assets/965d8e6b-4f0d-493d-955c-237e888ca6c7
+
+<img width="1920" height="1140" alt="Screenshot 2026-09-01 144808" src="https://github.com/user-attachments/assets/27c272ef-e2b7-4bb7-903c-1883516d6575" />
 
 
