@@ -26,8 +26,7 @@ Qwen/Ollama: translate JA→EN, auto-retry if Japanese leaks through
                               
    duck background music under dialogue, mix, mux into final video
 
-
-   --------------------------------
+--------------------------------
 
 # Features currently working : 
 
@@ -48,3 +47,12 @@ Qwen/Ollama: translate JA→EN, auto-retry if Japanese leaks through
 8-Automatic mistranslation detection: catches and retries lines where Japanese leaked into the "English" output
 
 9- --mode {anime,normal}: one flag switches duck level, reference length, accent-forcing, and whether mouth-alignment even runs — since these two content types need genuinely different settings, not just different luck
+
+
+---------------------------
+
+# Features to be added in the future: 
+
+Multi-speaker support
+
+----------------------------
