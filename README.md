@@ -25,4 +25,26 @@ Qwen/Ollama: translate JA→EN, auto-retry if Japanese leaks through
                               ↓
                               
    duck background music under dialogue, mix, mux into final video
-   
+
+
+   --------------------------------
+
+# Features currently working : 
+
+1- Voice cloning + translation: Whisper (ASR) → Qwen (translation) → OmniVoice (cloned TTS), fully local
+
+2- Background music/SFX preserved, not replaced — ducked under dialogue, not silenced
+
+3-Duration-guided synthesis: lines paced to fit their original timing slot, not generated freely then stretched (which caused artifacts)
+
+4-Mouth-timing alignment: retimes dialogue to match visible mouth movement (not pixel-level lip-sync — see caveats below)
+
+5-Zero-overlap guarantee: enforced as a hard rule regardless of any upstream timing imprecision
+
+6-Pronunciation controls: explicit language forcing, editable phoneme glossary for recurring mispronounced words
+
+7-Auto-trimmed, sentence-accurate reference clips: no manual clip prep needed
+
+8-Automatic mistranslation detection: catches and retries lines where Japanese leaked into the "English" output
+
+9- --mode {anime,normal}: one flag switches duck level, reference length, accent-forcing, and whether mouth-alignment even runs — since these two content types need genuinely different settings, not just different luck
